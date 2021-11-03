@@ -1,0 +1,60 @@
+@import '../../../variables.scss';
+
+.item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    &__active{
+        .icon__wrapper{
+            background: $orange;
+        }
+        .title{
+            color: $orange;
+        }
+    }
+}
+
+.icon{
+    &__wrapper{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: $brown;
+        position: relative;
+        overflow: hidden;
+        transition: 0.2s;
+    }
+    &__icon{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 25px;
+        fill: $white;
+    }
+}
+
+.title{
+    font-weight: 400;
+    color: $brown;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+@media screen and (max-width: 325px) {
+    .icon{
+        &__wrapper{
+            width: 30px;
+            height: 30px;
+        }
+        &__icon{
+            width: 20px;
+        }
+    }
+    .title{
+        font-size: 12px;
+    }
+}
