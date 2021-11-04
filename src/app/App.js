@@ -2,11 +2,11 @@ import { Switch, Route, Redirect } from 'react-router';
 import Navbar from '../components/Navbar/Navbar';
 import { HOME } from '../routes/consts';
 import { publicRoutes } from '../routes/routes';
-import './App.css';
+import styles from './App.module.scss';
 
 function App() {
     return (
-        <div className="App">
+        <div className={styles.app}>
             <Navbar />
 
             <Switch>

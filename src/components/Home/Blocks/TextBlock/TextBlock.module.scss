@@ -1,0 +1,16 @@
+.box{
+    margin: 0px 0px 30px 0px;
+    padding: 20px;
+    text-align: center;
+}
+
+.cite{
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: center;
+    &::after,
+    &::before{
+        content: '"'
+    }
+}

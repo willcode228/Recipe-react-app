@@ -1,0 +1,17 @@
+.slider {
+    width: 100% !important;
+    padding-top: 30px !important;
+    padding-bottom: 50px !important;
+    margin-bottom: 50px;
+}
+
+.slide{
+    width: 280px !important;
+    height: 325px !important;
+}
+
+@media screen and (max-width: 325px) {
+    .slide{
+        width: 260px !important;
+    }
+}
