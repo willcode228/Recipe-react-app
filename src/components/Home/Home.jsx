@@ -5,29 +5,30 @@ import TextBlock from './Blocks/TextBlock/TextBlock';
 
 
 const Home = ({data, setHomeData}) => {
-    console.log(data);
 
     useEffect(() => {
         setHomeData();
     }, []);
 
     return (
-        <div className={styles.home}>
+        <>
+            <div className={styles.home}>
 
-            <SliderBlock title='Recipes of the day' 
-                        recipes={data.day}/>
+                <SliderBlock title='Recipes of the day' 
+                            recipes={data.day}/>
 
-            <SliderBlock title='Recommended for you' 
-                        recipes={data.recommended}/>
+                <SliderBlock title='Recommended for you' 
+                            recipes={data.recommended}/>
 
-            <TextBlock title='Food joke' text={data.joke}/>
+                <TextBlock title='Food joke' text={data.joke}/>
 
-            <SliderBlock title='Under 20 minutes' 
-                        recipes={data.quick}/>
+                <SliderBlock title='Under 20 minutes' 
+                            recipes={data.quick}/>
 
-            <TextBlock title='Interesting trivia' text={data.trivia}/>
-        
-        </div>
+                <TextBlock title='Interesting trivia' text={data.trivia}/>
+            
+            </div>
+        </>
     );
 }
 

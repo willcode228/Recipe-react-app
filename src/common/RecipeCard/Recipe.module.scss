@@ -5,12 +5,15 @@
     height: 325px;
     border-radius: 25px;
     overflow: hidden;
-    background: $light-white;
 
     display: flex;
     flex-direction: column;
     box-shadow: 0px -2px 15px rgba(0, 0, 0, 0.3);
 }
+
+.green{ background: $green; }
+.white{ background: $light-white; }
+.blue{ background: $blue; }
 
 .img__wrapper{
     width: 100%;

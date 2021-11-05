@@ -2,10 +2,12 @@ import styles from './Recipe.module.scss';
 import { ReactComponent as TimerIcon } from '../../assets/timer.svg';
 import { ReactComponent as HeartIcon } from '../../assets/heart.svg';
 
-//image, readyInMinutes, title, aggregateLikes(format)
-const RecipeCard = ({recipe}) => {
+const RecipeCard = ({recipe, index}) => {
+    const colors = [styles.white, styles.blue, styles.green],
+        childIndex = (index + 1) % colors.length;
+
     return (
-        <div className={styles.card}>
+        <div className={`${styles.card} ${colors[childIndex]}`}>
 
             <div className={styles.img__wrapper}>
                 <img src={recipe.image} alt={recipe.title} />

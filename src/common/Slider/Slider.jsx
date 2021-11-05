@@ -30,9 +30,9 @@ const Slider = ({recipes}) => {
             >
 
                 {
-                    recipes.map(recipe => (
+                    recipes.map((recipe, index) => (
                         <SwiperSlide className={styles.slide} key={recipe.id}>
-                            <RecipeCard recipe={recipe} />
+                            <RecipeCard recipe={recipe} index={index}/>
                         </SwiperSlide>
                     ))
                 }
