@@ -1,6 +1,7 @@
 import styles from './Recipe.module.scss';
 import { ReactComponent as TimerIcon } from '../../assets/timer.svg';
 import { ReactComponent as HeartIcon } from '../../assets/heart.svg';
+import { ReactComponent as BookMarkIcon } from '../../assets/bookmark.svg';
 
 const RecipeCard = ({recipe, index}) => {
     const colors = [styles.white, styles.blue, styles.green],
@@ -8,6 +9,8 @@ const RecipeCard = ({recipe, index}) => {
 
     return (
         <div className={`${styles.card} ${colors[childIndex]}`}>
+
+            <button><BookMarkIcon className={styles.bookMark__icon}/></button>
 
             <div className={styles.img__wrapper}>
                 <img src={recipe.image} alt={recipe.title} />

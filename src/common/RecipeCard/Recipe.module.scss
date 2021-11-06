@@ -1,6 +1,7 @@
 @import '../../variables.scss';
 
 .card{
+    position: relative;
     width: 280px;
     height: 325px;
     border-radius: 25px;
@@ -11,17 +12,46 @@
     box-shadow: 0px -2px 15px rgba(0, 0, 0, 0.3);
 }
 
-.green{ background: $green; }
-.white{ background: $light-white; }
-.blue{ background: $blue; }
+.green{ 
+    background: $green; 
+    .bookMark__icon{
+        stroke: $green;
+    }
+}
+.white{ 
+    background: $light-white; 
+    .bookMark__icon{
+        stroke: $light-white;
+    }
+}
+.blue{ 
+    background: $blue;
+    .bookMark__icon{
+        stroke: $blue;
+    }
+}
 
 .img__wrapper{
     width: 100%;
+    height: 200px;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 2;
+    }
     img{
         width: 100%;
-        min-height: 200px;
+        min-height: 100%;
         object-fit: cover;
-        border-radius: 25px;
+        transform: scale(1.2);
     }
 }
 
@@ -63,6 +93,17 @@
             }
         }
     }
+}
+
+.bookMark__icon{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    fill: transparent;
+    stroke-width: 10px;
+    z-index: 9;
 }
 
 @media screen and (max-width: 325px) {

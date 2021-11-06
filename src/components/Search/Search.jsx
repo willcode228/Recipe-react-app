@@ -1,6 +1,19 @@
-const Search = () => {
+import Form from './Form/Form';
+import Result from './Result/Result';
+
+const Search = (props) => {
     return (
-        <h1>Search</h1>
+        <div className='search'>
+
+            <Form setSearchResult={props.setSearchResult}
+                searchText={props.searchText}
+                setSearchText={props.setSearchText}/>
+
+            <Result totalResultsCount={props.totalResultsCount}
+                    recipes={props.results}
+                    error={props.searchingError}
+                    loadMoreResults={props.setSearchResult}/>
+        </div>
     );
 }
 

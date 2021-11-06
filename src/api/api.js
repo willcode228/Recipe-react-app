@@ -40,3 +40,11 @@ const getJokeData = () => {
 
 
 export const homeApi = {getDayData, getRecommendedData, getQuickData, getTriviaData, getJokeData};
+
+const getSearchResult = (searchText, offset) => {
+    return instance
+    .get(`recipes/complexSearch?query=${searchText}&number=5&offset=${offset}&addRecipeInformation=true&apiKey=${KEY1}`)
+    .then(response => response.data);
+}
+
+export const searchApi = {getSearchResult};
