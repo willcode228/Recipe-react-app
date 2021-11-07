@@ -1,5 +1,5 @@
 import thunkMiddleware from 'redux-thunk';
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import homeReducer from './Home/reducer';
 import searchReducer from './Search/reducer';
 
@@ -8,7 +8,8 @@ const reducers = combineReducers({
     search: searchReducer
 });
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)));
 
 window.store = store;
 

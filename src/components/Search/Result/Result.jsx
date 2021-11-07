@@ -11,13 +11,13 @@ const Result = React.memo(({recipes, loadMoreResults, error, totalResultsCount})
 
             {
                 recipes.map((recipe, index) => (
-                    <RecipeCard className={styles.card} key={recipe.id} recipe={recipe} index={index} />
+                    <RecipeCard className={styles.card} key={recipe.id} recipe={recipe} index={index}/>
                 ))
             }
 
             {
                 recipes.length !== totalResultsCount && recipes.length
-                    ? <button onClick={loadMoreResults}>Load More</button>
+                    ? <button className={styles.load__btn} onClick={loadMoreResults}>Load More</button>
                     : null
             }
         </div>

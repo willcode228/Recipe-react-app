@@ -7,7 +7,7 @@ import TextBlock from './Blocks/TextBlock/TextBlock';
 const Home = ({data, setHomeData}) => {
 
     useEffect(() => {
-        setHomeData();
+        // setHomeData();
     }, []);
 
     return (
