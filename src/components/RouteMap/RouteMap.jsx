@@ -20,7 +20,7 @@ const RouteMap = ({location}) => {
                 <Switch>
                     <Route path={HOME} component={Home} exact/>
                     <Route path={SEARCH} component={Search} exact/>
-                    <Route path={`${RECIPE}/:recipeId?`} component={Recipe} exact/>
+                    <Route path={`${RECIPE}/:recipeId?/:color?`} component={Recipe} exact/>
 
                     <Redirect to={HOME} />
                 </Switch>

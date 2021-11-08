@@ -1,0 +1,27 @@
+@import '../../../variables.scss';
+
+.ingredients{
+    padding: 30px 5px 30px 5px;
+    color: $brown;
+    h2{
+        text-align: start;
+        margin-bottom: 15px;
+    }
+}
+
+.list{
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.item{
+    width: 130px;
+    text-align: center;
+    margin: 20px 10px;
+    // img{
+    //     width: 100px;
+    //     height: 110px;
+    // }
+}

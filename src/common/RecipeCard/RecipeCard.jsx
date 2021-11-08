@@ -7,11 +7,13 @@ import { NavLink } from 'react-router-dom';
 import { RECIPE } from '../../routes/consts';
 
 const RecipeCard = ({recipe, index}) => {
-    const colors = [styles.white, styles.blue, styles.green],
+    const colors = ['white', 'blue', 'green'],
         childIndex = (index + 1) % colors.length;
+    
+    const accent = colors[childIndex];
 
     return (
-        <div className={`${styles.card} ${colors[childIndex]}`}>
+        <div className={`${styles.card} ${styles[accent]}`}>
 
             <button><BookMarkIcon className={styles.bookMark__icon}/></button>
 
@@ -22,7 +24,7 @@ const RecipeCard = ({recipe, index}) => {
 
             <div className={styles.text__wrapper}>
 
-                <NavLink className={styles.title__wrapper} to={`${RECIPE}/${recipe.id}`}>
+                <NavLink className={styles.title__wrapper} to={`${RECIPE}/${recipe.id}/${accent}`}>
                     <h3 className={styles.title}>{recipe.title}</h3>
                 </NavLink>
 

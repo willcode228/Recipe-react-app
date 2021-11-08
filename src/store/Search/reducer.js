@@ -1,6 +1,6 @@
 import { SET_MORE_SEARCH_RESULT, SET_SEARCHING_ERROR, SET_SEARCH_RESULT, SET_SEARCH_TEXT, SET_SERVER_SEARCH_TEXT } from "./actions";
 
-let initialState = {
+const initialState = {
     results: [],
     totalResults: null,
     searchText: '',

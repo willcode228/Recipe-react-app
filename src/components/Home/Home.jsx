@@ -7,6 +7,7 @@ import TextBlock from './Blocks/TextBlock/TextBlock';
 const Home = ({data, setHomeData}) => {
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         // setHomeData();
     }, []);
 

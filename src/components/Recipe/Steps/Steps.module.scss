@@ -1,0 +1,17 @@
+@import '../../../variables.scss';
+
+.steps{
+    margin: 30px 5px 30px 5px;
+    color: $brown;
+    h2{
+        text-align: start;
+        margin-bottom: 15px;
+    }
+}
+
+.list{
+    list-style-type: none;
+    li{
+        margin-bottom: 10px;
+    }
+}

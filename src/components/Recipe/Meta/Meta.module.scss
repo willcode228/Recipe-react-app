@@ -1,0 +1,55 @@
+@import '../../../variables.scss';
+
+.meta{
+    padding: 20px 40px;
+    border-radius: 20px;
+    min-height: 100px;
+    position: relative;
+    top: -20px;
+    box-shadow: 0px -2px 15px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+}
+
+.line{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.item{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    color: $brown;
+    font-size: 18px;
+    svg{
+        margin-right: 10px;
+        width: 20px;
+        height: 19px;
+        fill: $brown;
+        stroke: $brown;
+    }
+}
+
+.orange{
+    svg{
+        fill: $orange;
+        stroke: $orange;
+    }
+}
+
+@media screen and (max-width: 365px) {
+    .meta{
+        padding: 20px;
+    }
+
+    .item{
+        margin: 5px;
+        font-size: 16px;
+        svg{
+            margin-right: 5px;
+        }
+    }
+}

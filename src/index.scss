@@ -36,21 +36,53 @@ code {
 .page-enter {
     opacity: 0;
     transform: scale(1.1);
-  }
-  
-  .page-enter-active {
+}
+
+.page-enter-active {
     opacity: 1;
     transform: scale(1);
     transition: opacity 300ms, transform 300ms;
-  }
-  
-  .page-exit {
+}
+
+.page-exit {
     opacity: 1;
     transform: scale(1);
-  }
-  
-  .page-exit-active {
+}
+
+.page-exit-active {
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 300ms, transform 300ms;
-  }
+}
+
+.green{ 
+    background: $green; 
+    .bookMark__icon{
+        stroke: $green;
+    }
+}
+.white{ 
+    background: $light-white; 
+    .bookMark__icon{
+        stroke: $light-white;
+    }
+}
+.blue{ 
+    background: $blue;
+    .bookMark__icon{
+        stroke: $blue;
+    }
+}
+
+.arrow.green{ 
+    background: none; 
+    color: $green;
+}
+.arrow.white{ 
+    background: none; 
+    color: $light-white;
+}
+.arrow.blue{ 
+    background: none; 
+    color: $blue;
+}

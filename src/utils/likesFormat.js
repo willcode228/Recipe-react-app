@@ -4,7 +4,7 @@ const likesFormat = num => {
         num /= 1000;
         flag++;
     }
-    return +num.toFixed(1) + (["", "k", "m", "b", "t"][flag] || "");
+    return num ? +num.toFixed(1) + (["", "k", "m", "b", "t"][flag] || "") : 0;
 }
 
 export default likesFormat;
