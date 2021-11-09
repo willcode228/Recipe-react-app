@@ -5,6 +5,7 @@ export const SET_MORE_SEARCH_RESULT = 'SET_MORE_SEARCH_RESULT';
 export const SET_SEARCH_TEXT = 'SET_SEARCH_TEXT';
 export const SET_SERVER_SEARCH_TEXT = 'SET_SERVER_SEARCH_TEXT';
 export const SET_SEARCHING_ERROR = 'SET_SEARCHING_ERROR';
+export const SET_AUTOCOMPLETE_RESULT = 'SET_AUTOCOMPLETE_RESULT';
 
 //ACTION CREATORS
 export const setSearchTextSuccess = (payload) => ({
@@ -25,12 +26,25 @@ export const setMoreSearchResultSuccess = (payload) => ({
 
 export const setSearchingError = (payload) => ({
     type: SET_SEARCHING_ERROR, payload
-})
+});
+
+export const setAutocompleteResultSuccess = (payload) => ({
+    type: SET_AUTOCOMPLETE_RESULT, payload
+});
 
 
 //THUNKS
 export const setSearchText = (searchText) => (dispatch) => {
     dispatch(setSearchTextSuccess(searchText));
+}
+
+export const setAutocompleteResult = () => (dispatch, getState) => {
+    const searchText = getState().search.searchText.trim();
+    
+    searchApi.getAutocompleteResult(searchText)
+            .then((response) => {
+                dispatch(setAutocompleteResultSuccess(response));
+            });
 }
 
 export const setSearchResult = () => (dispatch, getState) => {

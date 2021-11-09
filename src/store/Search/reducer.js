@@ -1,8 +1,9 @@
-import { SET_MORE_SEARCH_RESULT, SET_SEARCHING_ERROR, SET_SEARCH_RESULT, SET_SEARCH_TEXT, SET_SERVER_SEARCH_TEXT } from "./actions";
+import { SET_AUTOCOMPLETE_RESULT, SET_MORE_SEARCH_RESULT, SET_SEARCHING_ERROR, SET_SEARCH_RESULT, SET_SEARCH_TEXT, SET_SERVER_SEARCH_TEXT } from "./actions";
 
 const initialState = {
     results: [],
     totalResults: null,
+    autocompleteResult: null,
     searchText: '',
     serverSearchText: '',
     searchingError: ''
@@ -15,6 +16,11 @@ const searchReducer = (state = initialState, action) => {
                 ...state,
                 results: action.payload.results,
                 totalResults: action.payload.totalResults
+            }
+        case SET_AUTOCOMPLETE_RESULT:
+            return {
+                ...state,
+                autocompleteResult: action.payload
             }
         case SET_MORE_SEARCH_RESULT:
             return {

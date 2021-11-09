@@ -5,9 +5,11 @@ const Search = (props) => {
     return (
         <div className='search'>
 
-            <Form setSearchResult={props.setSearchResult}
+            <Form autocompleteResult={props.autocompleteResult}
                 searchText={props.searchText}
-                setSearchText={props.setSearchText}/>
+                setSearchResult={props.setSearchResult}
+                setSearchText={props.setSearchText}
+                setAutocompleteResult={props.setAutocompleteResult}/>
 
             <Result totalResultsCount={props.totalResultsCount}
                     recipes={props.results}

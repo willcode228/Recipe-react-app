@@ -47,7 +47,13 @@ const getSearchResult = (searchText, offset) => {
     .then(response => response.data);
 }
 
-export const searchApi = {getSearchResult};
+const getAutocompleteResult = (searchText) => {
+    return instance
+    .get(`recipes/autocomplete?number=3&query=${searchText}&apiKey=${KEY}`)
+    .then(response => response.data);
+}
+
+export const searchApi = {getSearchResult, getAutocompleteResult};
 
 const getRecipeData = (recipeId) => {
     return instance
