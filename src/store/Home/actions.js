@@ -1,7 +1,7 @@
 import axios from "axios";
 import { homeApi } from "../../api/api";
 
-export const SET_HOME_DATA = 'SET_HOME_DATA';
+export const SET_HOME_DATA = 'HOME/SET_HOME_DATA';
 
 
 //ACTION CREATORS

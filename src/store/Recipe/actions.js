@@ -1,6 +1,7 @@
 import axios from "axios";
 import { recipeApi } from "../../api/api";
-export const SET_RECIPE_DATA = 'SET_RECIPE_DATA';
+
+export const SET_RECIPE_DATA = 'RECIPE/SET_RECIPE_DATA';
 
 //ACTION CREATORS
 export const setRecipeDataSuccess = (payload) => ({
