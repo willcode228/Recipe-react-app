@@ -3,11 +3,13 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import homeReducer from './Home/reducer';
 import searchReducer from './Search/reducer';
 import recipeReducer from './Recipe/reducer';
+import loaderReducer from './Loader/reducer';
 
 const reducers = combineReducers({
     home: homeReducer,
     search: searchReducer,
-    recipe: recipeReducer
+    recipe: recipeReducer,
+    loader: loaderReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

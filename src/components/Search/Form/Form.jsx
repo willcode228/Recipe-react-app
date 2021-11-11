@@ -51,7 +51,6 @@ const Form = ({ setSearchResult, searchText, setSearchText, autocompleteResult, 
                 <button><SearchIcon className={styles.search__icon} /></button>
             </form>
 
-            <button><FilterIcon className={styles.filter__icon} /></button>
         </div>
     );
 }

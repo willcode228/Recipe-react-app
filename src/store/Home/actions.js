@@ -1,5 +1,6 @@
 import axios from "axios";
 import { homeApi } from "../../api/api";
+import { setLoaderStatus } from "../Loader/actions";
 
 export const SET_HOME_DATA = 'HOME/SET_HOME_DATA';
 
@@ -19,6 +20,8 @@ export const setHomeDataSuccess = (payload) => ({
 
 //THUNKS
 export const setHomeData = () => (dispatch) => {
+    dispatch(setLoaderStatus());
+
     axios.all([
         homeApi.getRecommendedData(),
         homeApi.getQuickData(),
@@ -28,6 +31,7 @@ export const setHomeData = () => (dispatch) => {
     ])
     .then(response => {
         dispatch(setHomeDataSuccess(response));
+        dispatch(setLoaderStatus());
     })
     .catch(err => {
         console.error(err);

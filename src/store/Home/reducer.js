@@ -5,7 +5,8 @@ const initialState = {
     recommended: [],
     quick: [],
     trivia: '',
-    joke: ''
+    joke: '',
+    isInitStatus: false
 }
 
 const homeReducer = (state = initialState, action) => {
@@ -13,7 +14,8 @@ const homeReducer = (state = initialState, action) => {
         case SET_HOME_DATA: 
             return {
                 ...state,
-                ...action.payload
+                ...action.payload,
+                isInitStatus: true
             }
         default:
             return state;

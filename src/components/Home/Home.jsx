@@ -2,13 +2,16 @@ import styles from './Home.module.scss';
 import { useEffect } from "react";
 import SliderBlock from './Blocks/SliderBlock/SliderBlock';
 import TextBlock from './Blocks/TextBlock/TextBlock';
-
+import Loader from '../../containers/Loader';
 
 const Home = ({data, setHomeData}) => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        // setHomeData();
+        
+        if(!data.isInitStatus) {
+            setHomeData();
+        }
     }, []);
 
     return (

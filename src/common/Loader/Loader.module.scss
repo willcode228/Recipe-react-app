@@ -1,0 +1,81 @@
+@import '../../variables.scss';
+
+$chomp-angle: 45;
+$chomp-speed: .35s;
+$dot-color: $pink;
+$head-color: $brown;
+$track-height: 10px;
+$track-length: 200px;
+$track-speed: 1.2s;
+$load-size: 5 * $track-height;
+
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: $white;
+    z-index: 999;
+    transition: 1.5s;
+    &__show{
+        opacity: 1;
+    }
+    &__hide{
+        opacity: 0;
+    }
+}
+
+.load__man {
+    animation: load-man-travel $track-speed infinite linear;
+    background: repeating-linear-gradient(90deg, $dot-color, $dot-color 5%, transparent 5%, transparent 35%);
+    height: $track-height;
+    left: 50%;
+    margin-top: -($track-height / 2);
+    position: absolute;
+    top: 50%;
+    width: $track-length;
+
+    &:after,
+    &:before {
+        content: '';
+        position: absolute;
+        left: -($load-size / 2);
+        top: 50%;
+        border: ($load-size / 2) solid $head-color;
+        border-radius: 100%;
+        margin-top: -($load-size / 2);
+    }
+    &:before {
+        --close: #{$chomp-angle * -2};
+        animation: load-man-chomp $chomp-speed infinite linear;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+
+    &:after {
+        --close: 0;
+        animation: load-man-chomp $chomp-speed infinite linear;
+        border-right-color: transparent;
+        border-top-color: transparent;
+    }
+}
+
+
+@keyframes load-man-travel {
+    to {
+        background-position: -($track-length) 0;
+    }
+}
+
+@keyframes load-man-chomp {
+    0% {
+        transform: rotate($chomp-angle * -1deg);
+    }
+    50% {
+        transform: rotate(calc(var(--close) * 1deg));
+    }
+    100% {
+        transform: rotate($chomp-angle * -1deg);
+    }
+}
