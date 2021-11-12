@@ -9,9 +9,15 @@ import Ingredients from './Ingredients/Ingredients';
 const Recipe = ({recipeData, calories, setRecipeData, ...props}) => {
 
     useEffect(() => {
-        window.scrollTo(0, 0);
-        const recipeId = props.match.params.recipeId;
-        setRecipeData(recipeId);
+        let cleanupFunction = false;
+
+        if(!cleanupFunction) {
+            window.scrollTo(0, 0);
+            const recipeId = props.match.params.recipeId;
+            setRecipeData(recipeId);
+        }
+
+        return () => cleanupFunction = true;
     }, []);
     
     return (

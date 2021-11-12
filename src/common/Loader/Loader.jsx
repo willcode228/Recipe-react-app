@@ -9,7 +9,6 @@ const Loader = ({isFetching}) => {
             mountOnEnter
             unmountOnExit
             timeout={{
-                enter: 1500,
                 exit: 1500,
             }}
             classNames={{

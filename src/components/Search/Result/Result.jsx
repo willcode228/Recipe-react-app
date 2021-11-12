@@ -2,7 +2,7 @@ import React from 'react';
 import RecipeCard from '../../../common/RecipeCard/RecipeCard';
 import styles from './Result.module.scss';
 
-const Result = React.memo(({recipes, loadMoreResults, error, totalResultsCount}) => {
+const Result = React.memo(({recipes, loadMoreResults, error, totalResultsCount, isLoadMoreDisable}) => {
     return (
         <div className={styles.result}>
             {
@@ -17,7 +17,12 @@ const Result = React.memo(({recipes, loadMoreResults, error, totalResultsCount})
 
             {
                 recipes.length !== totalResultsCount && recipes.length
-                    ? <button className={styles.load__btn} onClick={loadMoreResults}>Load More</button>
+                    ? <button disabled={isLoadMoreDisable} 
+                            className={styles.load__btn} 
+                            onClick={loadMoreResults}
+                        >
+                            Load More
+                        </button>
                     : null
             }
         </div>

@@ -1,41 +1,51 @@
-import { searchApi } from "../../api/api";
+import { searchApi } from "../../api/searchApi";
 
-export const SET_SEARCH_RESULT = 'SEARCH/SET_SEARCH_RESULT';
-export const SET_MORE_SEARCH_RESULT = 'SEARCH/SET_MORE_SEARCH_RESULT';
-export const SET_SEARCH_TEXT = 'SEARCH/SET_SEARCH_TEXT';
-export const SET_SERVER_SEARCH_TEXT = 'SEARCH/SET_SERVER_SEARCH_TEXT';
-export const SET_SEARCHING_ERROR = 'SEARCH/SET_SEARCHING_ERROR';
-export const SET_AUTOCOMPLETE_RESULT = 'SEARCH/SET_AUTOCOMPLETE_RESULT';
+export const SEARCH_TYPES = {
+    SET_SEARCH_RESULT: 'SEARCH/SET_SEARCH_RESULT',
+    SET_MORE_SEARCH_RESULT: 'SEARCH/SET_MORE_SEARCH_RESULT',
+    SET_SEARCH_TEXT: 'SEARCH/SET_SEARCH_TEXT',
+    SET_SERVER_SEARCH_TEXT: 'SEARCH/SET_SERVER_SEARCH_TEXT',
+    SET_SEARCHING_ERROR: 'SEARCH/SET_SEARCHING_ERROR',
+    SET_AUTOCOMPLETE_RESULT: 'SEARCH/SET_AUTOCOMPLETE_RESULT',
+    SET_LOAD_MORE_DISABLE: 'SEARCH/SET_LOAD_MORE_DISABLE'
+}
 
 //ACTION CREATORS
 export const setSearchTextSuccess = (payload) => ({
-    type: SET_SEARCH_TEXT, payload
+    type: SEARCH_TYPES.SET_SEARCH_TEXT, payload
 });
 
 export const setServerSearchTextSuccess = (payload) => ({
-    type: SET_SERVER_SEARCH_TEXT, payload
+    type: SEARCH_TYPES.SET_SERVER_SEARCH_TEXT, payload
 });
 
 export const setSearchResultSuccess = (payload) => ({
-    type: SET_SEARCH_RESULT, payload
+    type: SEARCH_TYPES.SET_SEARCH_RESULT, payload
 });
 
 export const setMoreSearchResultSuccess = (payload) => ({
-    type: SET_MORE_SEARCH_RESULT, payload
+    type: SEARCH_TYPES.SET_MORE_SEARCH_RESULT, payload
 });
 
 export const setSearchingError = (payload) => ({
-    type: SET_SEARCHING_ERROR, payload
+    type: SEARCH_TYPES.SET_SEARCHING_ERROR, payload
 });
 
 export const setAutocompleteResultSuccess = (payload) => ({
-    type: SET_AUTOCOMPLETE_RESULT, payload
+    type: SEARCH_TYPES.SET_AUTOCOMPLETE_RESULT, payload
 });
+
+export const setLoadMoreDisableSuccess = (payload) => ({
+    type: SEARCH_TYPES.SET_LOAD_MORE_DISABLE, payload
+})
 
 
 //THUNKS
 export const setSearchText = (searchText) => (dispatch) => {
     dispatch(setSearchTextSuccess(searchText));
+    if(!searchText.trim()) {
+        dispatch(setSearchingError(''));
+    }
 }
 
 export const setAutocompleteResult = () => (dispatch, getState) => {
@@ -62,6 +72,8 @@ export const setSearchResult = () => (dispatch, getState) => {
         return; 
     }
 
+    dispatch(setLoadMoreDisableSuccess(true));
+    
     searchApi.getSearchResult(searchText, offset)
     .then(response => {
         dispatch(setServerSearchTextSuccess(searchText));
@@ -73,6 +85,8 @@ export const setSearchResult = () => (dispatch, getState) => {
         isMoreMode
             ? dispatch(setMoreSearchResultSuccess(response))
             : dispatch(setSearchResultSuccess(response));
+        
+        dispatch(setLoadMoreDisableSuccess(false));
     })
     .catch(err => {
         dispatch(setSearchingError(err));

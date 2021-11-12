@@ -1,7 +1,6 @@
 import styles from './Recipe.module.scss';
 import { ReactComponent as TimerIcon } from '../../assets/timer.svg';
 import { ReactComponent as HeartIcon } from '../../assets/heart.svg';
-import { ReactComponent as BookMarkIcon } from '../../assets/bookmark.svg';
 import likesFormat from '../../utils/likesFormat';
 import { NavLink } from 'react-router-dom';
 import { RECIPE } from '../../routes/consts';
@@ -13,14 +12,11 @@ const RecipeCard = ({recipe, index}) => {
     const accent = colors[childIndex];
 
     return (
-        <div className={`${styles.card} ${styles[accent]}`}>
-
-            <button><BookMarkIcon className={styles.bookMark__icon}/></button>
+        <div className={`${styles.card} ${accent}`}>
 
             <div className={styles.img__wrapper}>
                 <img src={recipe.image} alt={recipe.title} />
             </div>
-
 
             <div className={styles.text__wrapper}>
 

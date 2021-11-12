@@ -5,7 +5,7 @@ const Tags = ({diets=[], dishTypes=[]}) => {
     return (
         <div className={styles.diets}>
             {
-                !diets.length && !dishTypes.length || <Title>Tags</Title>
+                !diets.length && !dishTypes.length ? <Title>Tags</Title> : null
             }
             {
                 diets.map((diet, index) => (

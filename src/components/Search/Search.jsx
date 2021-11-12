@@ -14,7 +14,8 @@ const Search = (props) => {
             <Result totalResultsCount={props.totalResultsCount}
                     recipes={props.results}
                     error={props.searchingError}
-                    loadMoreResults={props.setSearchResult}/>
+                    loadMoreResults={props.setSearchResult}
+                    isLoadMoreDisable={props.isLoadMoreDisable}/>
         </div>
     );
 }

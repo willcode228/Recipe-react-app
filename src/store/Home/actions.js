@@ -1,5 +1,5 @@
 import axios from "axios";
-import { homeApi } from "../../api/api";
+import { homeApi } from "../../api/homeApi";
 import { setLoaderStatus } from "../Loader/actions";
 
 export const SET_HOME_DATA = 'HOME/SET_HOME_DATA';

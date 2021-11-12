@@ -7,7 +7,8 @@ const mapStateToProps = (state) => ({
     totalResultsCount: state.search.totalResults,
     searchText: state.search.searchText,
     searchingError: state.search.searchingError,
-    autocompleteResult: state.search.autocompleteResult
+    autocompleteResult: state.search.autocompleteResult,
+    isLoadMoreDisable: state.search.isLoadMoreDisable
 });
 
 export default connect(mapStateToProps, {setSearchResult, setSearchText, setAutocompleteResult})(Search);

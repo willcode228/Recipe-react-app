@@ -5,30 +5,10 @@
     width: 280px;
     height: 325px;
     border-radius: 25px;
-    overflow: hidden;
 
     display: flex;
     flex-direction: column;
     box-shadow: 0px -2px 15px rgba(0, 0, 0, 0.3);
-}
-
-.green{ 
-    background: $green; 
-    .bookMark__icon{
-        stroke: $green;
-    }
-}
-.white{ 
-    background: $light-white; 
-    .bookMark__icon{
-        stroke: $light-white;
-    }
-}
-.blue{ 
-    background: $blue;
-    .bookMark__icon{
-        stroke: $blue;
-    }
 }
 
 .img__wrapper{
@@ -97,17 +77,6 @@
             }
         }
     }
-}
-
-.bookMark__icon{
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 20px;
-    right: 10px;
-    fill: transparent;
-    stroke-width: 10px;
-    z-index: 9;
 }
 
 @media screen and (max-width: 325px) {

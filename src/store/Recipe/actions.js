@@ -1,5 +1,5 @@
 import axios from "axios";
-import { recipeApi } from "../../api/api";
+import { recipeApi } from "../../api/recipeApi";
 import { setLoaderStatus } from "../Loader/actions";
 
 export const SET_RECIPE_DATA = 'RECIPE/SET_RECIPE_DATA';
