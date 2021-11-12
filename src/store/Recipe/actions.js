@@ -16,7 +16,7 @@ export const setRecipeDataSuccess = (payload) => ({
 
 //THUNKS
 export const setRecipeData = (recipeId) => (dispatch) => {
-    dispatch(setLoaderStatus());
+    dispatch(setLoaderStatus(true));
 
     axios.all([
         recipeApi.getRecipeData(recipeId),
@@ -24,7 +24,7 @@ export const setRecipeData = (recipeId) => (dispatch) => {
     ])
     .then(response => {
         dispatch(setRecipeDataSuccess(response));
-        dispatch(setLoaderStatus());
+        dispatch(setLoaderStatus(false));
     })
     .catch(err => {
         console.log(err);

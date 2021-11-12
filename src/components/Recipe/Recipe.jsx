@@ -34,11 +34,8 @@ const Recipe = ({recipeData, calories, setRecipeData, ...props}) => {
             </div>
         
             <Meta color={props.match.params.color}
-                title={recipeData.title} 
-                aggregateLikes={recipeData.aggregateLikes}
                 calories={calories}
-                readyTime={recipeData.readyInMinutes}
-                score={recipeData.spoonacularScore}/>
+                recipeData={recipeData}/>
 
             <Ingredients ingredients={recipeData.extendedIngredients}/>
 

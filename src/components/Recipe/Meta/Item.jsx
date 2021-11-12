@@ -1,9 +1,9 @@
 import styles from './Meta.module.scss';
 
-const Item = ({Icon, title, active}) => {
+const Item = ({Icon = null, title, active}) => {
     return (
         <div className={`${styles.item} ${active ? styles.orange : ''}`}>
-            <Icon />
+            {!Icon ? null : <Icon />}
             {title}
         </div>
     )

@@ -9,7 +9,7 @@ const loaderReducer = (state = initialState, action) => {
         case SET_LOADER_STATUS: 
             return {
                 ...state,
-                isFetching: !state.isFetching
+                isFetching: action.payload
             }
         default:
             return state;

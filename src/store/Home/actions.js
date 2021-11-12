@@ -20,7 +20,7 @@ export const setHomeDataSuccess = (payload) => ({
 
 //THUNKS
 export const setHomeData = () => (dispatch) => {
-    dispatch(setLoaderStatus());
+    dispatch(setLoaderStatus(true));
 
     axios.all([
         homeApi.getRecommendedData(),
@@ -31,7 +31,7 @@ export const setHomeData = () => (dispatch) => {
     ])
     .then(response => {
         dispatch(setHomeDataSuccess(response));
-        dispatch(setLoaderStatus());
+        dispatch(setLoaderStatus(false));
     })
     .catch(err => {
         console.error(err);
