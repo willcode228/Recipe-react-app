@@ -1,13 +1,12 @@
 import styles from './Slider.module.scss';
 import 'swiper/swiper.min.css'
 import 'swiper/swiper-bundle.min.css'
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/react";
 import SwiperCore, {EffectCoverflow, Pagination} from 'swiper';
-import RecipeCard from '../RecipeCard/RecipeCard';
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 
-const Slider = ({recipes}) => {
+const Slider = (props) => {
     return (
         <>
             <Swiper effect={'coverflow'} 
@@ -29,14 +28,7 @@ const Slider = ({recipes}) => {
                 className={styles.slider}
             >
 
-                {
-                    recipes.map((recipe, index) => (
-                        <SwiperSlide className={styles.slide} key={recipe.id}>
-                            <RecipeCard recipe={recipe} index={index}/>
-                        </SwiperSlide>
-                    ))
-                }
-
+                {props.children}
             </Swiper>
         </>
     )
