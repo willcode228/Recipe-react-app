@@ -1,14 +1,14 @@
-import { instance, KEY } from "./api";
+import { instance } from "./api";
 
 const getRecipeData = (recipeId) => {
     return instance
-    .get(`recipes/${recipeId}/information?addRecipeInformation=true&apiKey=${KEY}`)
+    .get(`recipes/${recipeId}/information?addRecipeInformation=true`)
     .then(response => response.data);
 }
 
 const getRecipeCalories = (recipeId) => {
     return instance
-    .get(`recipes/${recipeId}/nutritionWidget.json?apiKey=${KEY}`)
+    .get(`recipes/${recipeId}/nutritionWidget.json`)
     .then(response => response.data.calories);
 }
 
